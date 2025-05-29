@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      data-i18n-key="page-description"
+      content="thinking.tools  | Open technology that runs anywhere, works for everyone."
+    />
+    <title data-i18n-key="page-title">
+      thinking.tools | Open technology that runs anywhere, works for everyone.
+    </title>
+
+    <link
+      rel="shortcut icon"
+      type="image/svg+xml"
+      href="/assets/images/thinkingtools_logo.svg"
+    />
+
+    <link rel="alternate" hreflang="en" href="https://thinking.tools/" />
+    <link rel="alternate" hreflang="es" href="https://thinking.tools/es" />
+    <link rel="alternate" hreflang="fr" href="https://thinking.tools/fr" />
+    <link rel="alternate" hreflang="de" href="https://thinking.tools/de" />
+    <link rel="alternate" hreflang="cs" href="https://thinking.tools/cs" />
+    <link rel="alternate" hreflang="x-default" href="https://thinking.tools/" />
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+
+  <body>
+    <main>
+      <span class="header-name">
+        <img
+          src="/assets/images/thinkingtools_logo.svg"
+          alt="thinking.tools Logo"
+        />
+      </span>
+      <nav>
+        <a href="/" data-i18n-key="language-en">English</a>
+        <a href="/es" data-i18n-key="language-es">Español</a>
+        <a href="/fr" data-i18n-key="language-fr">Français</a>
+        <a href="/de" data-i18n-key="language-de">Deutsch</a>
+        <a href="/cs" data-i18n-key="language-cs">Čeština</a>
+      </nav>
+      <section>
+        <h1 data-i18n-key="heroTitle">
+          Open technology that runs anywhere, works for everyone.
+        </h1>
+        <p data-i18n-key="heroText">
+          We are building technology that respects your time, your privacy, and
+          your right to tinker. We're just getting started, but you can watch it
+          unfold.
+        </p>
+        <a
+          href="https://github.com/thinking-tools/"
+          data-i18n-key="followGithub"
+          >Follow on Github</a
+        >
+      </section>
+    </main>
+    <script>
+      // Language routing script
+      (function () {
+        // Supported languages
+        const supportedLangs = ["en", "es", "fr", "de", "cs"];
+
+        // Get current page language from path
+        const getCurrentLang = () => {
+          const path = window.location.pathname;
+          const match = path.match(/^\/([a-z]{2})(\/|$)/);
+          return match ? match[1] : "en";
+        };
+
+        // Get browser language preference
+        const getBrowserLang = () => {
+          // Try navigator.language first, then languages array
+          const browserLang =
+            navigator.language || navigator.languages?.[0] || "en";
+          // Extract just the language code (e.g., 'en' from 'en-US')
+          const langCode = browserLang.split("-")[0].toLowerCase();
+          // Return supported language or default to 'en'
+          return supportedLangs.includes(langCode) ? langCode : "en";
+        };
+
+        // Build correct path for language
+        const buildLangPath = (lang) => {
+          if (lang === "en") {
+            return "/";
+          }
+          return `/${lang}/`;
+        };
+
+        // Check if we should redirect
+        const shouldRedirect = () => {
+          // Get stored preference
+          const storedLang = localStorage.getItem("preferredLang");
+          const currentLang = getCurrentLang();
+
+          // If no stored preference, detect and store
+          if (!storedLang) {
+            const detectedLang = getBrowserLang();
+            localStorage.setItem("preferredLang", detectedLang);
+
+            // Redirect if detected language differs from current
+            if (detectedLang !== currentLang) {
+              window.location.href = buildLangPath(detectedLang);
+              return true;
+            }
+          } else if (storedLang !== currentLang) {
+            // User has preference but is on wrong language page
+            window.location.href = buildLangPath(storedLang);
+            return true;
+          }
+
+          return false;
+        };
+
+        // Add click handlers to language links
+        const setupLangLinks = () => {
+          const navLinks = document.querySelectorAll("nav a");
+          navLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+              // Extract language from href
+              const href = link.getAttribute("href");
+              let lang = "en";
+
+              if (href !== "/") {
+                const match = href.match(/^\/([a-z]{2})/);
+                if (match) {
+                  lang = match[1];
+                }
+              }
+
+              // Store preference
+              localStorage.setItem("preferredLang", lang);
+            });
+          });
+        };
+
+        // Run on page load
+        document.addEventListener("DOMContentLoaded", () => {
+          // Set up language link handlers
+          setupLangLinks();
+
+          // Check if redirect needed (only on initial load)
+          if (!sessionStorage.getItem("langChecked")) {
+            sessionStorage.setItem("langChecked", "true");
+            shouldRedirect();
+          }
+        });
+
+        // Also check immediately in case of slow page load
+        if (document.readyState === "loading") {
+          if (!sessionStorage.getItem("langChecked")) {
+            sessionStorage.setItem("langChecked", "true");
+            shouldRedirect();
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
