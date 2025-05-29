@@ -1,11 +1,11 @@
 {
-    "name": "thinkiweb",
-    "version": "1.0.0",
-    "scripts": {
-        "dev": "node dev.js && livereload ./build",
-        "build": "node build.js"
-    },
-    "devDependencies": {
-        "livereload": "^0.9.0"
-    }
+  "name": "thinkiweb",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node dev.js && livereload ./docs",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "livereload": "^0.9.0"
+  }
 }

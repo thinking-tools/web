@@ -3,7 +3,7 @@ const path = require("path");
 
 // Configuration
 const TRANSLATIONS_DIR = "./assets/translations";
-const BUILD_DIR = "./build";
+const BUILD_DIR = "./docs";
 const TEMPLATE_FILE = "./index.html";
 
 // Create build directory if it doesn't exist
