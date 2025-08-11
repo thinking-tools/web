@@ -58,7 +58,10 @@ h6 {
 .bg-bright-blue {
   background-color: #567cfd;
 }
-
+.bg-bright-blue-gradient {
+  background-color: #567cfd;
+  background-image: linear-gradient(180deg, #567cfd 50%, #3eb549 140%);
+}
 .c-bright-blue {
   color: #567cfd;
 }
@@ -90,7 +93,9 @@ h6 {
 .c-teal-cyan {
   color: #10b981;
 }
-
+.bg-true-orange {
+  background-color: #f59e0b;
+}
 .c-true-orange {
   color: #f59e0b;
 }
