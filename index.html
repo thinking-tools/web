@@ -27,7 +27,7 @@
 
     <link rel="stylesheet" href="/src/assets/css/styles.css" />
     <script src="/src/main.js"></script>
-    <script src="/src/shader.js" type="module"></script>
+    <!-- <script src="/src/shader.js" type="module"></script> -->
   </head>
 
   <body>
@@ -61,76 +61,13 @@
                 <li><a>Blog</a></li>
               </ul>
             </div>
-          </div>
-          <div class="navbar-center lg:flex bg-transparent">
             <a class="text-xl m-4"><img src="/src/assets/images/logo1.svg" class="logo" alt="thinking.tools" /></a>
           </div>
-          <div class="navbar-end">
-            <div class="dropdown dropdown-start">
-              <div tabindex="0" role="button" class="btn m-1 btn-ghost">
-                <svg class="text-base-content/70 size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path
-                    stroke-linejoin="round"
-                    stroke-linecap="round"
-                    stroke-width="2"
-                    fill="none"
-                    stroke="currentColor"
-                    d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17"
-                  ></path>
-                </svg>
-                English
-              </div>
-              <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                <li><a>Item 1</a></li>
-                <li><a>Item 2</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hero bg-base-200 golden-height">
-        <div class="hero-overlay" id="shaderAnim"></div>
-        <div class="hero-content text-center">
-          <div class="max-w-full">
-            <h1 class="text-5xl font-bold">Open technology that runs anywhere.<br />Works for everyone.</h1>
-            <p class="py-6 max-w-2xl mx-auto">
-              We are building technology that respects your time, your privacy, and your right to tinker. We're just
-              getting started, but you can watch it unfold.
-            </p>
-            <button class="btn btn-primary">Subscribe for updates</button>
-          </div>
-        </div>
-      </div>
-      <div class="content">
-        <div class="navbar bg-transparent">
-          <div class="navbar-start"></div>
-          <div class="navbar-center lg:flex backdrop-blur glass rounded-full -mt-10">
-            <ul class="menu menu-horizontal">
-              <li>
-                <a class="rounded-full p-2 px-4"
-                  ><svg
-                    class="w-5 h-5 c-bright-blue"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-width="2"
-                      d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
-                    />
-                  </svg>
-
-                  Company</a
-                >
-              </li>
+          <div class="navbar-center lg:flex bg-transparent">
+            <ul class="menu menu-horizontal rounded-full backdrop-blur glass">
               <li>
                 <details>
-                  <summary class="rounded-full p-2 px-4">
+                  <summary class="rounded-full p-2 px-4 text-white">
                     <svg
                       class="w-5 h-5 c-vibrant-green"
                       width="18"
@@ -173,7 +110,29 @@
                 </details>
               </li>
               <li>
-                <a class="rounded-full p-2 px-4"
+                <a class="rounded-full p-2 px-4 text-white"
+                  ><svg
+                    class="w-5 h-5 c-bright-blue"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-width="2"
+                      d="M4.5 17H4a1 1 0 0 1-1-1 3 3 0 0 1 3-3h1m0-3.05A2.5 2.5 0 1 1 9 5.5M19.5 17h.5a1 1 0 0 0 1-1 3 3 0 0 0-3-3h-1m0-3.05a2.5 2.5 0 1 0-2-4.45m.5 13.5h-7a1 1 0 0 1-1-1 3 3 0 0 1 3-3h3a3 3 0 0 1 3 3 1 1 0 0 1-1 1Zm-1-9.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"
+                    />
+                  </svg>
+
+                  Company</a
+                >
+              </li>
+              <li>
+                <a class="rounded-full p-2 px-4 text-white"
                   ><svg
                     class="w-5 h-5 c-true-orange"
                     aria-hidden="true"
@@ -195,7 +154,7 @@
                 >
               </li>
               <li>
-                <a class="rounded-full p-2 px-4"
+                <a class="rounded-full p-2 px-4 text-white"
                   ><svg
                     class="w-5 h-5 c-red-orange"
                     aria-hidden="true"
@@ -220,15 +179,15 @@
             </ul>
           </div>
           <div class="navbar-end">
-            <!-- <div class="dropdown dropdown-start">
-              <div tabindex="0" role="button" class="btn m-1 btn-ghost">
+            <div class="dropdown dropdown-start">
+              <div tabindex="0" role="button" class="btn m-1 btn-ghost text-white">
                 <svg class="text-base-content/70 size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path
                     stroke-linejoin="round"
                     stroke-linecap="round"
                     stroke-width="2"
                     fill="none"
-                    stroke="currentColor"
+                    stroke="#FFFFFF"
                     d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17"
                   ></path>
                 </svg>
@@ -238,9 +197,88 @@
                 <li><a>Item 1</a></li>
                 <li><a>Item 2</a></li>
               </ul>
-            </div> -->
+            </div>
           </div>
         </div>
+      </div>
+      <div class="hero bg-bright-blue-gradient golden-height">
+        <div class="hero-overlay" id="shaderAnim"></div>
+        <div class="hero-content text-center">
+          <div class="max-w-full">
+            <h1 class="text-5xl font-bold text-white">Open technology that runs anywhere.<br />Works for everyone.</h1>
+            <p class="py-6 max-w-2xl mx-auto text-white">
+              We are building technology that respects your time, your privacy, and your right to tinker. We're just
+              getting started, but you can watch it unfold.
+            </p>
+            <button class="btn btn-primary bg-true-orange text-black border-0 rounded-full">
+              Subscribe for updates
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="content">
+        <section
+          class="flex min-h-[calc(100vh+4rem)] px-2 py-10 text-center xl:justify-start xl:ps-10 xl:pe-0 xl:text-start"
+        >
+          <!-- <div class="carousel rounded-box w-192 h-90">
+            <div class="carousel-item w-full">
+              <div class="card lg:card-side">
+                <figure>
+                  <iframe src="https://unimo.app" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
+                </figure>
+                <div class="card-body">
+                  <h2 class="card-title">Unimo.app</h2>
+                  <p>A new way to manage your online presence.</p>
+                  <div class="card-actions justify-end">
+                    <button class="btn btn-primary">Visit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+            <div class="carousel-item w-full">
+              <img
+                src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
+                class="w-full"
+                alt="Tailwind CSS Carousel component"
+              />
+            </div>
+          </div> -->
+        </section>
 
         <!-- Company Section -->
         <section
