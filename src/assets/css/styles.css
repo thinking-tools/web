@@ -1,0 +1,96 @@
+@import '@fontsource/inter';
+@import '@fontsource/sora';
+@import 'tailwindcss';
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    lofi;
+}
+
+:root {
+  /* --fontsize: 0.981rem; */
+  --default-font-family: 'Inter', sans-serif;
+  --golden-ratio: 1.618;
+  --screen-height: 100vh;
+  --golden-height: calc(var(--screen-height) / var(--golden-ratio) + 42px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sora', sans-serif;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.menu {
+  font-size: 0.925rem;
+}
+
+.golden-height {
+  height: var(--golden-height);
+  overflow: hidden;
+}
+.hero-overlay {
+  opacity: 0.95;
+}
+
+.logo {
+  width: auto;
+  max-height: 38px;
+}
+.c-dark-black {
+  color: #0e0e0e;
+}
+
+.c-light-gray {
+  color: #e6eaef;
+}
+
+.c-golden-yellow {
+  color: #f3b852;
+}
+
+.bg-bright-blue {
+  background-color: #567cfd;
+}
+
+.c-bright-blue {
+  color: #567cfd;
+}
+
+.c-red-orange {
+  color: #db3c23;
+}
+
+.c-medium-gray {
+  color: #a3a5a8;
+}
+
+.c-vibrant-green {
+  color: #3eb549;
+}
+
+.c-purple-violet {
+  color: #8b5cf6;
+}
+
+.c-magenta-pink {
+  color: #ec4899;
+}
+
+.c-deep-indigo {
+  color: #4c1d95;
+}
+
+.c-teal-cyan {
+  color: #10b981;
+}
+
+.c-true-orange {
+  color: #f59e0b;
+}
