@@ -1,5 +1,6 @@
 @import '@fontsource/inter';
-@import '@fontsource/sora';
+@import '@fontsource/outfit';
+@import '@fontsource/crimson-pro';
 @import 'tailwindcss';
 @plugin "daisyui" {
   themes:
@@ -9,11 +10,11 @@
 }
 
 :root {
-  /* --fontsize: 0.981rem; */
-  --default-font-family: 'Inter', sans-serif;
+  /* --fontsize: 1.281rem; */
+  --default-font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   --golden-ratio: 1.618;
   --screen-height: 100vh;
-  --golden-height: calc(var(--screen-height) / var(--golden-ratio) + 42px);
+  --golden-height: calc(var(--screen-height) - 42px);
 }
 
 h1,
@@ -22,9 +23,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   line-height: 1.2;
   font-weight: 500;
+}
+
+p {
+  font-family: 'Crimson Pro', serif;
+  font-weight: 300;
+  font-size: 1.36rem;
+  line-height: 1.6;
 }
 
 .menu {
@@ -34,9 +42,6 @@ h6 {
 .golden-height {
   height: var(--golden-height);
   overflow: hidden;
-}
-.hero-overlay {
-  opacity: 0.95;
 }
 
 .logo {
@@ -56,14 +61,41 @@ h6 {
 }
 
 .bg-bright-blue {
-  background-color: #567cfd;
+  background-color: #e7ecf3;
 }
-.bg-bright-blue-gradient {
-  background-color: #567cfd;
-  background-image: linear-gradient(180deg, #567cfd 50%, #3eb549 140%);
-}
+
 .c-bright-blue {
   color: #567cfd;
+}
+.c-bright-blue-border-bottom,
+.c-purple-violet-border-bottom,
+.c-true-orange-border-bottom {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  text-shadow:
+    #e7ecf3 4px 2px,
+    #e7ecf3 -4px 2px;
+}
+.c-bright-blue-border-bottom::after,
+.c-purple-violet-border-bottom::after,
+.c-true-orange-border-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  /* border-radius: 1px; */
+  left: 0;
+  z-index: -1;
+  height: 4px;
+  width: 100%;
+  background-color: #567cfd;
+}
+.c-purple-violet-border-bottom::after {
+  background-color: #8b5cf6;
+}
+
+.c-true-orange-border-bottom::after {
+  background-color: #f59e0b;
 }
 
 .c-red-orange {
@@ -98,4 +130,12 @@ h6 {
 }
 .c-true-orange {
   color: #f59e0b;
+}
+
+.hero-background {
+  background-image: url('/src/assets/images/bazmeky.svg');
+  background-repeat: no-repeat;
+  background-size: 1480px auto;
+  background-position: bottom center;
+  background-color: #e7ecf3;
 }

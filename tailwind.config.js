@@ -2,7 +2,7 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      fontFamily: { display: ['Sora', 'system-ui', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: { display: ['Outfit', 'system-ui', 'sans-serif'], body: ['Outfit', 'system-ui', 'sans-serif'] },
     },
   },
   plugins: [],
