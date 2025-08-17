@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
       data-i18n-key="page-description"
@@ -64,10 +64,10 @@
             <a class="text-xl m-4"><img src="/src/assets/images/logo1.svg" class="logo" alt="thinking.tools" /></a>
           </div>
           <div class="navbar-center lg:flex bg-transparent">
-            <ul class="menu menu-horizontal rounded-full backdrop-blur glass">
+            <ul class="menu menu-horizontal rounded-full">
               <li>
                 <details>
-                  <summary class="rounded-full p-2 px-4 text-white">
+                  <summary class="rounded-full p-2 px-4">
                     <svg
                       class="w-5 h-5 c-vibrant-green"
                       width="18"
@@ -110,7 +110,7 @@
                 </details>
               </li>
               <li>
-                <a class="rounded-full p-2 px-4 text-white"
+                <a class="rounded-full p-2 px-4"
                   ><svg
                     class="w-5 h-5 c-bright-blue"
                     aria-hidden="true"
@@ -132,7 +132,7 @@
                 >
               </li>
               <li>
-                <a class="rounded-full p-2 px-4 text-white"
+                <a class="rounded-full p-2 px-4"
                   ><svg
                     class="w-5 h-5 c-true-orange"
                     aria-hidden="true"
@@ -154,7 +154,7 @@
                 >
               </li>
               <li>
-                <a class="rounded-full p-2 px-4 text-white"
+                <a class="rounded-full p-2 px-4"
                   ><svg
                     class="w-5 h-5 c-red-orange"
                     aria-hidden="true"
@@ -180,14 +180,14 @@
           </div>
           <div class="navbar-end">
             <div class="dropdown dropdown-start">
-              <div tabindex="0" role="button" class="btn m-1 btn-ghost text-white">
+              <div tabindex="0" role="button" class="btn m-1 btn-ghost rounded-full">
                 <svg class="text-base-content/70 size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                   <path
                     stroke-linejoin="round"
                     stroke-linecap="round"
                     stroke-width="2"
                     fill="none"
-                    stroke="#FFFFFF"
+                    stroke="#000000"
                     d="M12 21a9 9 0 1 0 0-18m0 18a9 9 0 1 1 0-18m0 18c2.761 0 3.941-5.163 3.941-9S14.761 3 12 3m0 18c-2.761 0-3.941-5.163-3.941-9S9.239 3 12 3M3.5 9h17m-17 6h17"
                   ></path>
                 </svg>
@@ -201,84 +201,27 @@
           </div>
         </div>
       </div>
-      <div class="hero bg-bright-blue-gradient golden-height">
-        <div class="hero-overlay" id="shaderAnim"></div>
+      <div class="hero hero-background golden-height">
+        <!-- <div class="hero-overlay" id="shaderAnim"></div> -->
         <div class="hero-content text-center">
           <div class="max-w-full">
-            <h1 class="text-5xl font-bold text-white">Open technology that runs anywhere.<br />Works for everyone.</h1>
-            <p class="py-6 max-w-2xl mx-auto text-white">
+            <h1 class="text-5xl font-bold">
+              <span class="c-bright-blue-border-bottom">Open</span> technology that runs
+              <span class="c-purple-violet-border-bottom">anywhere</span>,<br />works for
+              <span class="c-true-orange-border-bottom">everyone</span>.
+            </h1>
+            <p class="py-6 max-w-2xl mx-auto">
               We are building technology that respects your time, your privacy, and your right to tinker. We're just
               getting started, but you can watch it unfold.
             </p>
-            <button class="btn btn-primary bg-true-orange text-black border-0 rounded-full">
-              Subscribe for updates
-            </button>
+            <button class="btn btn-primary border-0 rounded-full mt-10 px-8">Subscribe for updates</button>
           </div>
         </div>
       </div>
       <div class="content">
         <section
           class="flex min-h-[calc(100vh+4rem)] px-2 py-10 text-center xl:justify-start xl:ps-10 xl:pe-0 xl:text-start"
-        >
-          <!-- <div class="carousel rounded-box w-192 h-90">
-            <div class="carousel-item w-full">
-              <div class="card lg:card-side">
-                <figure>
-                  <iframe src="https://unimo.app" class="w-full h-96" frameborder="0" allowfullscreen></iframe>
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">Unimo.app</h2>
-                  <p>A new way to manage your online presence.</p>
-                  <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Visit</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-            <div class="carousel-item w-full">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-                class="w-full"
-                alt="Tailwind CSS Carousel component"
-              />
-            </div>
-          </div> -->
-        </section>
+        ></section>
 
         <!-- Company Section -->
         <section
