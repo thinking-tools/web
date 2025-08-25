@@ -11,7 +11,7 @@
 
 :root {
   /* --fontsize: 1.281rem; */
-  --default-font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  /* --default-font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; */
   --golden-ratio: 1.618;
   --screen-height: 100vh;
   --golden-height: calc(var(--screen-height) - 42px);
@@ -23,16 +23,16 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Crimson Pro', serif;
   line-height: 1.2;
   font-weight: 500;
 }
 
 p {
-  font-family: 'Crimson Pro', serif;
-  font-weight: 300;
+  /* font-family: 'Crimson Pro', serif; */
+  /* font-weight: 300;
   font-size: 1.36rem;
-  line-height: 1.6;
+  line-height: 1.6; */
 }
 
 .menu {
@@ -74,8 +74,8 @@ p {
   z-index: 1;
   display: inline-block;
   text-shadow:
-    #e7ecf3 4px 2px,
-    #e7ecf3 -4px 2px;
+    #eeebdf 4px 2px,
+    #eeebdf -4px 2px;
 }
 .c-bright-blue-border-bottom::after,
 .c-purple-violet-border-bottom::after,
@@ -136,7 +136,7 @@ p {
   background-repeat: no-repeat;
   background-size: 1480px auto;
   background-position: bottom center;
-  background-color: #e7ecf3;
+  background-color: #eeebdf;
 }
 /*
  * ----------------------------------------
