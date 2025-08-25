@@ -83,7 +83,6 @@ p {
   content: '';
   position: absolute;
   bottom: 2px;
-  /* border-radius: 1px; */
   left: 0;
   z-index: -1;
   height: 4px;
