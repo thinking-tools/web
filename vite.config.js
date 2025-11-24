@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
-import { i18nAlly } from 'vite-plugin-i18n-ally';
 
 export default defineConfig({
-  plugins: [tailwindcss(), i18nAlly()],
+  plugins: [tailwindcss()],
+  // server: {
+  //   host: '0.0.0.0',
+  //   allowedHosts: ['.ngrok-free.app'],
+  // },
   build: {
     outDir: 'docs',
+    cssMinify: true,
   },
 });
