@@ -7,6 +7,7 @@ export default defineConfig({
   //   host: '0.0.0.0',
   //   allowedHosts: ['.ngrok-free.app'],
   // },
+  base: './',
   build: {
     outDir: 'docs',
     cssMinify: true,
