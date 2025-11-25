@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="lofi">
   <head>
     <meta charset="UTF-8" />
@@ -146,9 +146,9 @@
                   Privacy-first iCloud alternative for everyone.
                 </h4>
                 <span class="text-sm sm:text-base text-gray-400 max-w-3xl block mb-4" t
-                  >For all your devices (iOS, Android, web, desktop) and for people who don't take our word for it...
-                  Access files, photos, notes, and clipboard anywhere without creepy Big Tech. Share securely with
-                  friends and colleagues.
+                  >For all your devices (iOS, Android, Desktop) and for people who don't take our word for it... Access
+                  files, photos, notes, and clipboard anywhere without creepy Big Tech. Share securely with friends and
+                  colleagues.
                 </span>
                 <a
                   href="https://cryptpad.cz/form/#/2/form/view/AFFelSJl-3PlekPX2HlFIw4hnW0kToTcIHHDkV6xy9Y/"
@@ -310,26 +310,76 @@
                 Subscribe to our newsletter to receive the latest news and updates about upcomming projects and changes.
                 No spam, no junk, no data selling.
               </p>
-              <form class="w-full">
+              <form id="subscribe-form" class="w-full">
                 <div
                   class="flex flex-col sm:flex-row items-stretch sm:items-center border-b border-gray-300 py-2 gap-2 sm:gap-0"
                 >
                   <input
+                    id="email-input"
                     class="appearance-none bg-transparent border-none w-full text-gray-700 sm:mr-3 py-1 px-2 leading-tight focus:outline-none"
                     type="email"
                     t="placeholder"
                     placeholder="Your email address"
                     aria-label="Email address"
+                    required
                   />
                   <button
-                    class="flex-shrink-0 bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto"
+                    id="subscribe-btn"
+                    class="flex-shrink-0 bg-green-500 hover:bg-green-700 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto transition-colors"
                     type="submit"
                     t
                   >
                     Subscribe
                   </button>
                 </div>
+                <p id="form-message" class="text-sm mt-2 hidden"></p>
               </form>
+
+              <script>
+                (function () {
+                  const API = 'https://subs-collector.jensenwtfwtf.workers.dev';
+                  const form = document.getElementById('subscribe-form');
+                  const input = document.getElementById('email-input');
+                  const btn = document.getElementById('subscribe-btn');
+                  const msg = document.getElementById('form-message');
+
+                  const showMsg = (text, isError) => {
+                    msg.textContent = text;
+                    msg.className = `text-sm mt-2 ${isError ? 'text-red-500' : 'text-green-600'}`;
+                  };
+
+                  form.addEventListener('submit', async e => {
+                    e.preventDefault();
+                    const email = input.value.trim();
+
+                    btn.disabled = true;
+                    btn.textContent = 'Subscribing...';
+                    msg.className = 'text-sm mt-2 hidden';
+
+                    try {
+                      const res = await fetch(API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email }),
+                      });
+
+                      const data = await res.json();
+
+                      if (res.ok) {
+                        showMsg("Thanks! You're subscribed.", false);
+                        input.value = '';
+                      } else {
+                        showMsg(data.error || 'Something went wrong', true);
+                      }
+                    } catch {
+                      showMsg('Network error. Please try again.', true);
+                    } finally {
+                      btn.disabled = false;
+                      btn.textContent = 'Subscribe';
+                    }
+                  });
+                })();
+              </script>
             </div>
           </div>
         </div>
