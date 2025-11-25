@@ -718,17 +718,21 @@
 
           // Set canvas size
           function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            // Translate to center for coordinate system
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            // Reset transform and re-apply (canvas resize clears all state)
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
             ctx.translate(canvas.width / 2, canvas.height / 2);
+            // Re-apply styles (cleared on resize)
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+            ctx.strokeStyle = '#cfaeef';
           }
 
           resizeCanvas();
 
           // Create stars
           const starCount = 120;
-          const starSpeed = 0.004;
+          const starSpeed = 0.009;
 
           for (let i = 0; i < starCount; i++) {
             stars.push(new Star(canvas, ctx, starSpeed));
