@@ -30,8 +30,8 @@
   background: #fff;
   border-radius: 3px;
   transform-origin: left center;
-  -webkit-animation: spark-burst 0.6s ease-out forwards;
-  animation: spark-burst 0.6s ease-out forwards;
+  -webkit-animation: spark-burst 0.4s ease-out forwards;
+  animation: spark-burst 0.4s ease-out forwards;
 }
 .spark::after {
   content: '';
