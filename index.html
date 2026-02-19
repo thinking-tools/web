@@ -27,6 +27,48 @@
 
     <link rel="stylesheet" href="./src/assets/css/styles.css" />
     <script src="./src/main.js" type="module"></script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://thinking.tools/#organization",
+            "name": "thinking.tools s.r.o.",
+            "url": "https://thinking.tools",
+            "description": "Open technology that runs anywhere, works for everyone.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Korunní 2569/108",
+              "addressLocality": "Prague 10 - Vinohrady",
+              "postalCode": "10100",
+              "addressCountry": "CZ"
+            },
+            "vatID": "CZ23956526",
+            "sameAs": [
+              "https://github.com/thinking-tools",
+              "https://codeberg.org/thinking_tools",
+              "https://www.linkedin.com/company/thinking-dot-tools",
+              "https://bsky.app/profile/thinkingtools.bsky.social"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "peter@thinking.tools",
+              "contactType": "General Inquiry"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://thinking.tools/#website",
+            "url": "https://thinking.tools",
+            "name": "thinking.tools",
+            "publisher": { "@id": "https://thinking.tools/#organization" },
+            "inLanguage": ["en", "es", "fr", "de", "cs"]
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>

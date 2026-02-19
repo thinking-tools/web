@@ -25,8 +25,50 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16-Dyvd7hTV.png" />
     <link rel="manifest" href="./assets/site-CgEAygBo.webmanifest" />
 
-    <script type="module" crossorigin src="./assets/index-ClXfWoht.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BurQNraC.css">
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://thinking.tools/#organization",
+            "name": "thinking.tools s.r.o.",
+            "url": "https://thinking.tools",
+            "description": "Open technology that runs anywhere, works for everyone.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Korunní 2569/108",
+              "addressLocality": "Prague 10 - Vinohrady",
+              "postalCode": "10100",
+              "addressCountry": "CZ"
+            },
+            "vatID": "CZ23956526",
+            "sameAs": [
+              "https://github.com/thinking-tools",
+              "https://codeberg.org/thinking_tools",
+              "https://www.linkedin.com/company/thinking-dot-tools",
+              "https://bsky.app/profile/thinkingtools.bsky.social"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "peter@thinking.tools",
+              "contactType": "General Inquiry"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://thinking.tools/#website",
+            "url": "https://thinking.tools",
+            "name": "thinking.tools",
+            "publisher": { "@id": "https://thinking.tools/#organization" },
+            "inLanguage": ["en", "es", "fr", "de", "cs"]
+          }
+        ]
+      }
+    </script>
+    <script type="module" crossorigin src="./assets/index-dB-idkpR.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BdezupfP.css">
   </head>
 
   <body>
@@ -100,13 +142,13 @@
       </div>
       <div class="hero hero-background golden-height">
         <div class="hero-content text-center px-4 sm:px-6 lg:px-8">
-          <div class="max-w-full">
+          <div class="max-w-full lg:max-w-4xl">
             <h1
               id="hero-h1"
               class="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold animate-on-load"
               t="_key:hero.title"
             >
-              Building systems that respect your <br /><span class="c-bright-blue-border-bottom">privacy</span>,
+              Building systems that respect your <span class="c-bright-blue-border-bottom">privacy</span>,
               <span class="c-purple-violet-border-bottom">sovereignty</span>, and
               <span class="c-true-orange-border-bottom">right to tinker</span>.
             </h1>
@@ -146,12 +188,12 @@
                   Privacy-first iCloud alternative for everyone.
                 </h4>
                 <span class="text-sm sm:text-base text-gray-400 max-w-3xl block mb-4" t
-                  >For all your devices (iOS, Android, web, desktop) and for people who don't take our word for it...
-                  Access files, photos, notes, and clipboard anywhere without creepy Big Tech. Share securely with
-                  friends and colleagues.
+                  >For all your devices (iOS, Android, Desktop) and for people who don't take our word for it... Access
+                  files, photos, notes, and clipboard anywhere without creepy Big Tech. Share securely with friends and
+                  colleagues.
                 </span>
                 <a
-                  href="https://cryptpad.cz/form/#/3/form/view/39a27204abdc4a968f6a9a2802ca3828/"
+                  href="https://cryptpad.cz/form/#/2/form/view/AFFelSJl-3PlekPX2HlFIw4hnW0kToTcIHHDkV6xy9Y/"
                   class="inline-flex items-center gap-5 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 px-6 py-3 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50 group"
                   t
                 >
@@ -237,8 +279,8 @@
                 </p>
                 <ul class="list-disc list-inside mb-6 text-gray-700 space-y-2 max-w-3xl">
                   <li>Senior Mobile Engineer (Android)</li>
-                  <li>Fullstack Developer (Typescript/JS)</li>
-                  <li class="line-through text-gray-300">DevOps Engineer</li>
+                  <li>Fullstack Developer (Typescript)</li>
+                  <li>Infra Engineer (SGX/TDX/SEV familiarity)</li>
                 </ul>
                 <p class="text-gray-600 italic max-w-3xl">
                   Don't see your exact job title? Neither do we - we're still figuring this out. Email us anyway.
@@ -279,7 +321,7 @@
               </div>
             </div>
             <a
-              href="mailto:careers@example.com"
+              href="mailto:careers@thinking.tools"
               class="inline-block mt-4 rounded-lg bg-true-orange hover:bg-true-orange text-white font-semibold py-2 px-4 transition duration-200"
               t
             >
@@ -310,26 +352,76 @@
                 Subscribe to our newsletter to receive the latest news and updates about upcomming projects and changes.
                 No spam, no junk, no data selling.
               </p>
-              <form class="w-full">
+              <form id="subscribe-form" class="w-full">
                 <div
                   class="flex flex-col sm:flex-row items-stretch sm:items-center border-b border-gray-300 py-2 gap-2 sm:gap-0"
                 >
                   <input
+                    id="email-input"
                     class="appearance-none bg-transparent border-none w-full text-gray-700 sm:mr-3 py-1 px-2 leading-tight focus:outline-none"
                     type="email"
                     t="placeholder"
                     placeholder="Your email address"
                     aria-label="Email address"
+                    required
                   />
                   <button
-                    class="flex-shrink-0 bg-green-500 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto"
+                    id="subscribe-btn"
+                    class="flex-shrink-0 bg-green-500 hover:bg-green-700 disabled:bg-gray-400 text-white font-semibold py-2 px-4 rounded w-full sm:w-auto transition-colors"
                     type="submit"
                     t
                   >
                     Subscribe
                   </button>
                 </div>
+                <p id="form-message" class="text-sm mt-2 hidden"></p>
               </form>
+
+              <script>
+                (function () {
+                  const API = 'https://subs-collector.jensenwtfwtf.workers.dev/subscribe';
+                  const form = document.getElementById('subscribe-form');
+                  const input = document.getElementById('email-input');
+                  const btn = document.getElementById('subscribe-btn');
+                  const msg = document.getElementById('form-message');
+
+                  const showMsg = (text, isError) => {
+                    msg.textContent = text;
+                    msg.className = `text-sm mt-2 ${isError ? 'text-red-500' : 'text-green-600'}`;
+                  };
+
+                  form.addEventListener('submit', async e => {
+                    e.preventDefault();
+                    const email = input.value.trim();
+
+                    btn.disabled = true;
+                    btn.textContent = 'Subscribing...';
+                    msg.className = 'text-sm mt-2 hidden';
+
+                    try {
+                      const res = await fetch(API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email }),
+                      });
+
+                      const data = await res.json();
+
+                      if (res.ok) {
+                        showMsg("Thanks! You're subscribed.", false);
+                        input.value = '';
+                      } else {
+                        showMsg(data.error || 'Something went wrong', true);
+                      }
+                    } catch {
+                      showMsg('Network error. Please try again.', true);
+                    } finally {
+                      btn.disabled = false;
+                      btn.textContent = 'Subscribe';
+                    }
+                  });
+                })();
+              </script>
             </div>
           </div>
         </div>
