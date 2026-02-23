@@ -221,6 +221,60 @@
             </div>
           </div>
         </section>
+        <section class="flex text-center xl:justify-start mt-4 sm:mt-6">
+          <div
+            id="sigil-group"
+            class="mx-auto w-full max-w-[90vw] bg-stone-50 rounded-2xl sm:rounded-3xl relative group overflow-hidden project border border-stone-200"
+          >
+            <canvas id="sigil-canvas" class="absolute inset-0 w-full h-full rounded-2xl sm:rounded-3xl"></canvas>
+            <div
+              class="block w-full relative z-10 py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-10 transition-transform duration-300 hover:scale-98 flex flex-col justify-between min-h-[300px] sm:min-h-[400px] lg:min-h-[42vh]"
+            >
+              <div class="text-left mb-6 sm:mb-8">
+                <p class="text-xs text-gray-500 mb-2 outfit-font">
+                  <span
+                    class="inline-flex items-center rounded-md bg-cyan-500/10 px-2 py-1 text-xs font-medium text-cyan-700 inset-ring inset-ring-cyan-500/20"
+                    >Project SIGIL</span
+                  >
+                </p>
+                <h4
+                  class="text-xl sm:text-2xl lg:text-4xl font-bold text-gray-900 opacity-90 group-hover:opacity-100 duration-200 mb-4 outfit-font"
+                >
+                  Don't trust. Verify. Deploy attested FOSS in one command.
+                </h4>
+                <span class="text-sm sm:text-base text-gray-500 max-w-3xl block mb-4"
+                  >A CLI that packages open-source code into remotely attested Gramine images—so anyone can
+                  cryptographically prove the exact code running in production. No more "trust me bro" AI.
+                  No more blind faith in model providers. Just math.
+                </span>
+                <a
+                  href="https://github.com"
+                  class="inline-flex items-center gap-5 bg-gradient-to-r from-cyan-500 to-teal-600 hover:from-cyan-600 hover:to-teal-700 px-6 py-3 rounded-lg text-white font-semibold text-sm transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/30 group"
+                >
+                  Coming Soon
+                </a>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-3 text-left">
+                <div>
+                  <h5 class="font-semibold text-sm text-gray-800 mb-1">Prove what's running.</h5>
+                  <p class="text-xs sm:text-sm text-gray-500">Remote attestation lets anyone verify the exact code executing inside a TEE. No trust required.</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-sm text-gray-800 mb-1">AI you can actually audit.</h5>
+                  <p class="text-xs sm:text-sm text-gray-500">LLM providers claim open weights—SIGIL proves it. Verify the model, the code, and the environment end-to-end.</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-sm text-gray-800 mb-1">One command. Gramine image.</h5>
+                  <p class="text-xs sm:text-sm text-gray-500">Package any FOSS project into an attested enclave. Deploy to SGX/TDX with a single CLI call.</p>
+                </div>
+                <div>
+                  <h5 class="font-semibold text-sm text-gray-800 mb-1">Kill the trust gap.</h5>
+                  <p class="text-xs sm:text-sm text-gray-500">Open source means nothing if you can't prove it's what's deployed. SIGIL closes the gap between repo and runtime.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       <section class="mission px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20" id="mission">
         <div class="mx-auto w-full max-w-6xl">
@@ -692,6 +746,58 @@
           ease: 'none',
         });
 
+        // SIGIL project animations
+        const sigilGroup = document.getElementById('sigil-group');
+        const sigilCanvas = document.getElementById('sigil-canvas');
+        const sigilContent = sigilGroup.querySelector('.block');
+
+        const sigilTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sigilGroup,
+            start: 'top 75%',
+            end: 'top 25%',
+            scrub: 1.5,
+            onEnter: () => sigilGroup.classList.add(':hover'),
+            onLeaveBack: () => sigilGroup.classList.remove(':hover'),
+          },
+        });
+
+        gsap.set(sigilGroup, {
+          scale: 1.1,
+          opacity: 0.9,
+          y: 20,
+          rotationX: 15,
+          transformPerspective: 1000,
+          filter: 'blur(2px)',
+        });
+
+        sigilTl.to(sigilGroup, {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          filter: 'blur(0px)',
+          ease: 'power3.out',
+        }).to(
+          sigilCanvas,
+          {
+            opacity: 1,
+            ease: 'power2.inOut',
+          },
+          '<0.2',
+        );
+
+        gsap.to(sigilContent, {
+          scrollTrigger: {
+            trigger: sigilGroup,
+            start: 'top 60%',
+            end: 'bottom 30%',
+            scrub: 2,
+          },
+          y: -20,
+          ease: 'none',
+        });
+
         // Auto-update copyright year
         document.getElementById('current-year').textContent = new Date().getFullYear();
         // Star particle class
@@ -752,7 +858,7 @@
         }
 
         // Initialize the star field animation
-        function initStarField(canvasId) {
+        function initStarField(canvasId, color = '#cfaeef') {
           const canvas = document.getElementById(canvasId);
           const ctx = canvas.getContext('2d');
           const stars = [];
@@ -767,7 +873,7 @@
             ctx.translate(canvas.width / 2, canvas.height / 2);
             // Re-apply styles (cleared on resize)
             ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-            ctx.strokeStyle = '#cfaeef';
+            ctx.strokeStyle = color;
           }
 
           resizeCanvas();
@@ -782,7 +888,7 @@
 
           // Style settings
           ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Trail fade effect
-          ctx.strokeStyle = '#cfaeef'; // Purple/pink star color
+          ctx.strokeStyle = color;
 
           // Animation loop
           function animate() {
@@ -827,8 +933,119 @@
           };
         }
 
+        // Hash attestation grid animation
+        function initHashField(canvasId) {
+          const canvas = document.getElementById(canvasId);
+          const ctx = canvas.getContext('2d');
+          let isAnimating = true;
+
+          const hex = '0123456789abcdef';
+          const fontSize = 14;
+          const colW = fontSize * 0.75;
+          const rowH = fontSize * 1.5;
+          let cols, rows, grid;
+          let time = 0;
+
+          function initGrid() {
+            grid = [];
+            for (let i = 0; i < cols; i++) {
+              grid[i] = [];
+              for (let j = 0; j < rows; j++) {
+                grid[i][j] = {
+                  char: hex[Math.floor(Math.random() * 16)],
+                  phase: Math.random() * Math.PI * 2,
+                  drift: 0.3 + Math.random() * 1.5,
+                  lastChange: Math.random() * 10,
+                };
+              }
+            }
+          }
+
+          function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            cols = Math.ceil(canvas.width / colW) + 1;
+            rows = Math.ceil(canvas.height / rowH) + 1;
+            initGrid();
+          }
+
+          resizeCanvas();
+
+          function animate() {
+            time += 0.016;
+
+            // Clear with light bg fade (creates subtle trail)
+            ctx.fillStyle = 'rgba(250, 250, 249, 0.45)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.font = `${fontSize}px "SF Mono", "Fira Code", "Cascadia Code", monospace`;
+            ctx.textBaseline = 'top';
+
+            // Two waves at different speeds for layered effect
+            const wave1 = ((time * 0.06) % 1.6 - 0.3) * cols;
+            const wave2 = ((time * 0.04 + 0.7) % 1.6 - 0.3) * cols;
+
+            for (let i = 0; i < cols; i++) {
+              for (let j = 0; j < rows; j++) {
+                const cell = grid[i][j];
+
+                // Distance from each wave
+                const d1 = Math.abs(i - wave1);
+                const d2 = Math.abs(i - wave2);
+                const dMin = Math.min(d1, d2);
+
+                // Wave influence (0 = far, 1 = on the wave)
+                const waveRadius = 12;
+                const influence = Math.max(0, 1 - dMin / waveRadius);
+                const influenceSq = influence * influence;
+
+                // Scramble rate ramps up near the wave
+                const scrambleChance = influenceSq * 0.5 + 0.003;
+                if (Math.random() < scrambleChance) {
+                  cell.char = hex[Math.floor(Math.random() * 16)];
+                }
+
+                // Opacity: very faint ambient, bright on wave
+                const ambient = 0.035 + Math.sin(time * cell.drift + cell.phase) * 0.015;
+                const opacity = ambient + influenceSq * 0.42;
+
+                // Color shifts: gray ambient → cyan on primary wave → teal on secondary
+                const x = i * colW;
+                const y = j * rowH;
+
+                if (influence > 0.05) {
+                  // Wave zone: bright cyan glow
+                  const r = 6, g = Math.round(150 + influence * 62), b = Math.round(180 + influence * 32);
+                  ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+                } else {
+                  // Ambient: stone-400 gray
+                  ctx.fillStyle = `rgba(168, 162, 158, ${opacity})`;
+                }
+
+                ctx.fillText(cell.char, x, y);
+              }
+            }
+
+            if (isAnimating) requestAnimationFrame(animate);
+          }
+
+          document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+              isAnimating = true;
+              animate();
+            } else {
+              isAnimating = false;
+            }
+          });
+
+          window.addEventListener('resize', resizeCanvas);
+          animate();
+          return () => { isAnimating = false; };
+        }
+
         // Usage:
-        initStarField('project-canvas');
+        initStarField('project-canvas', '#cfaeef');
+        initHashField('sigil-canvas');
       </script>
 
       <style>
