@@ -3,7 +3,10 @@
 @import '@fontsource/crimson-pro';
 @import 'tailwindcss';
 @plugin "daisyui" {
-  themes: light --default, dark --prefersdark, lofi;
+  themes:
+    light --default,
+    dark --prefersdark,
+    lofi;
 }
 
 :root {
@@ -119,7 +122,9 @@ h6 {
   position: relative;
   z-index: 1;
   display: inline-block;
-  text-shadow: #eeebdf 2px 2px, #eeebdf -2px 2px;
+  text-shadow:
+    #eeebdf 2px 2px,
+    #eeebdf -2px 2px;
 }
 .c-bright-blue-border-bottom::after,
 .c-purple-violet-border-bottom::after,
@@ -379,8 +384,11 @@ h6 {
 
 .projects h4 {
   /* font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; */
-
-  text-shadow: 0 0 1px #b393d3, 0 0 3px #b393d3, 0 0 3px #b393d3, 0 0 5px #b393d3;
+  text-shadow:
+    0 0 1px #b393d3,
+    0 0 3px #b393d3,
+    0 0 3px #b393d3,
+    0 0 5px #b393d3;
 }
 .projects h5 {
   font-family: 'Outfit', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

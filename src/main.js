@@ -1,4 +1,3 @@
-console.log('Hello, World!');
 const colors = ['#db3c23', '#8b5cf6', '#f59e0b', '#3eb549', '#567cfd'];
 
 // Exact 6 angles from logo: horizontal + 45° diagonals on both sides
