@@ -15,7 +15,7 @@
   --golden-ratio: 1.618;
   --screen-height: 100vh;
   --golden-height: calc(var(--screen-height) - 15vh);
-  cursor: url('/src/assets/images/pointer.svg'), auto;
+  cursor: url('/src/assets/images/pointer.svg') 10 3, auto;
 }
 
 .wrap {
